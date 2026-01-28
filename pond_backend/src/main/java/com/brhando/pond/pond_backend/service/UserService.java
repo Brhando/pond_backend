@@ -5,6 +5,7 @@ import com.brhando.pond.pond_backend.domain.User;
 import com.brhando.pond.pond_backend.repository.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -21,6 +22,14 @@ public class UserService {
 
     public List<User> getAllUsers() {
         return repo.findAll();
+    }
+
+    public Optional<User> getByEmail(String email) {
+        return repo.findByEmail(email);
+    }
+
+    public Iterable<User> getByName(String name) {
+        return repo.findByName(name);
     }
 
 }

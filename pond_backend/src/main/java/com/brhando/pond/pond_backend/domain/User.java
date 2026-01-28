@@ -2,6 +2,7 @@ package com.brhando.pond.pond_backend.domain;
 
 import jakarta.persistence.*;
 
+//relationship annotations go in entities
 @Entity
 @Table(name = "users")
 public class User {

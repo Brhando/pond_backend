@@ -5,6 +5,7 @@ import com.brhando.pond.pond_backend.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -18,6 +19,16 @@ public class UserController {
     @GetMapping
     public List<User> getUsers() {
         return service.getAllUsers();
+    }
+
+    @GetMapping("/by-email")
+    public Optional<User> getByEmail(@RequestParam String email) {
+        return service.getByEmail(email);
+    }
+
+    @GetMapping("/by-name")
+    public Iterable<User> getByName(@RequestParam String name) {
+        return service.getByName(name);
     }
 
     @PostMapping
